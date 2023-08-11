@@ -1,0 +1,32 @@
+{
+  "name": "forteerp-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build_admin": "cd ForteERP-API-admin && npm run build",
+    "build_global": "cd ForteERP-API-global && npm run build",
+    "build": "concurrently \"npm run build_admin\" \"npm run_build global\"",
+    "add_dependencies": "npm install && concurrently \"cd ForteERP-API-admin && npm install\" \"cd ForteERP-API-global && npm install\"",
+    "setup_database": "cd ForteERP-API-global && npm run setup",
+    "dev": "concurrently \"pm2 start ForteERP-API-global/dist/index.js -n global\" \"pm2 start ForteERP-API-admin/dist/index.js -n admin\"",
+    "prod": "concurrently \"pm2 start ForteERP-API-global/index.js -n global\" \"pm2 start ForteERP-API-admin/index.js -n admin\"",
+    "list": "pm2 list",
+    "log_admin": "pm2 logs admin"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vijay1996/ForteERP-API.git"
+  },
+  "author": "Vijaybhoj Raj C M",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vijay1996/ForteERP-API/issues"
+  },
+  "homepage": "https://github.com/vijay1996/ForteERP-API#readme",
+  "dependencies": {
+    "concurrently": "^8.2.0",
+    "dependencies": "^0.0.1",
+    "pm2": "^5.3.0"
+  }
+}
