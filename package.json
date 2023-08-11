@@ -7,6 +7,7 @@
     "build_admin": "cd ForteERP-API-admin && npm run build",
     "build_global": "cd ForteERP-API-global && npm run build",
     "build": "concurrently \"npm run build_admin\" \"npm run_build global\"",
+    "fetch_submodules": "git submodule update --force --init --recursive && git submodule update --force --recursive --remote",
     "add_dependencies": "npm install && concurrently \"cd ForteERP-API-admin && npm install\" \"cd ForteERP-API-global && npm install\"",
     "setup_database": "cd ForteERP-API-global && npm run setup",
     "dev": "concurrently \"pm2 start ForteERP-API-global/dist/index.js -n global\" \"pm2 start ForteERP-API-admin/dist/index.js -n admin\"",
