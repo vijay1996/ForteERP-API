@@ -7,13 +7,11 @@
     "build_admin": "cd ForteERP-API-admin && npm run build",
     "build_global": "cd ForteERP-API-global && npm run build",
     "build": "concurrently \"npm run build_admin\" \"npm run_build global\"",
-    "fetch_submodules": "git submodule update --force --init --recursive && git submodule update --force --recursive --remote",
+    "fetch_submodules": "git submodule init && git submodule update --force --merge --remote",
     "add_dependencies": "npm install && concurrently \"cd ForteERP-API-admin && npm install\" \"cd ForteERP-API-global && npm install\"",
     "setup_database": "cd ForteERP-API-global && npm run setup",
-    "dev": "concurrently \"pm2 start ForteERP-API-global/dist/index.js -n global\" \"pm2 start ForteERP-API-admin/dist/index.js -n admin\"",
-    "prod": "concurrently \"pm2 start ForteERP-API-global/index.js -n global\" \"pm2 start ForteERP-API-admin/index.js -n admin\"",
-    "list": "pm2 list",
-    "log_admin": "pm2 logs admin"
+    "dev": "concurrently \"nodemon ForteERP-API-global/dist/index.js -n global\" \"nodemon ForteERP-API-admin/dist/index.js -n admin\"",
+    "prod": "concurrently \"node --watch ForteERP-API-global/index.js\" \"node --watch ForteERP-API-admin/index.js\""
   },
   "repository": {
     "type": "git",
@@ -26,8 +24,9 @@
   },
   "homepage": "https://github.com/vijay1996/ForteERP-API#readme",
   "dependencies": {
-    "concurrently": "^8.2.0",
-    "dependencies": "^0.0.1",
-    "pm2": "^5.3.0"
+    "concurrently": "^8.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   }
 }

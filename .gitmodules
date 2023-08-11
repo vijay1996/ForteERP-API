@@ -1,6 +1,0 @@
-[submodule "ForteERP-API-global"]
-	path = ForteERP-API-global
-	url = https://github.com/vijay1996/ForteERP-API-global.git
-[submodule "ForteERP-API-admin"]
-	path = ForteERP-API-admin
-	url = https://github.com/vijay1996/ForteERP-API-admin.git
