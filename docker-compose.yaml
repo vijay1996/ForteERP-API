@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  forte_erp-api-global:
+    build: ./ForteERP-API-global
+    ports: 
+      - 3001:3001
+    environment:
+      - DOCKER_HOST=http://127.0.0.1:5500/
+  forte_erp-api-admin:
+    build: ./ForteERP-API-admin
+    ports: 
+      - 3002:3002
+    environment:
+      - DOCKER_HOST=http://127.0.0.1:5500/

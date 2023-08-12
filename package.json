@@ -4,29 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start_admin": "cd ForteERP-API-admin && npm run dev",
+    "start_global": "cd ForteERP-API-global && npm run dev",
+    "dev": "concurrently \"npm run start_admin\" \"npm run start_global\"",
     "build_admin": "cd ForteERP-API-admin && npm run build",
     "build_global": "cd ForteERP-API-global && npm run build",
-    "build": "concurrently \"npm run build_admin\" \"npm run_build global\"",
-    "fetch_submodules": "git submodule init && git submodule update --force --merge --remote",
-    "add_dependencies": "npm install && concurrently \"cd ForteERP-API-admin && npm install\" \"cd ForteERP-API-global && npm install\"",
-    "setup_database": "cd ForteERP-API-global && npm run setup",
-    "dev": "concurrently \"nodemon ForteERP-API-global/dist/index.js -n global\" \"nodemon ForteERP-API-admin/dist/index.js -n admin\"",
-    "prod": "concurrently \"node --watch ForteERP-API-global/index.js\" \"node --watch ForteERP-API-admin/index.js\""
+    "build": "concurrently \"npm run build_admin\" \"npm run build_global\""
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/vijay1996/ForteERP-API.git"
-  },
-  "author": "Vijaybhoj Raj C M",
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/vijay1996/ForteERP-API/issues"
-  },
-  "homepage": "https://github.com/vijay1996/ForteERP-API#readme",
   "dependencies": {
     "concurrently": "^8.2.0"
-  },
-  "devDependencies": {
-    "nodemon": "^3.0.1"
   }
 }
